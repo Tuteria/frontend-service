@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "tuteria-frontend-service",
+  "alias": "tuteria-frontend-service",
+  "builds": [
+    {
+      "src": "run.py",
+      "use": "@gbozee/now-python-asgi@1.0.6",
+      "config": {
+        "maxLambdaSize": "15mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "/"
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   "builds": [
     {
       "src": "index.py",
-      "use": "@gbozee/now-python-asgi@1.0.6",
+      "use": "@now/python",
       "config": {
         "maxLambdaSize": "15mb"
       }

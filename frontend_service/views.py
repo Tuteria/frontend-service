@@ -70,5 +70,6 @@ async def fetch_regions(request: Request):
 
 @app.route("/search/{search_token}", methods=["GET"])
 async def tutor_search(request: Request):
+    page = request.query_params.get("page") or 1
     search_token = request.path_params["search_token"]
-    return await build_response(service_layer.tutor_search(search_token))
+    return await build_response(service_layer.tutor_search(search_token, page=page))

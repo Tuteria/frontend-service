@@ -38,7 +38,8 @@ async def fetch_regions(
     return types.SampleResult(data=result)
 
 
-async def tutor_search(search_token) -> types.SampleResult:
+async def tutor_search(search_token, page=1) -> types.SampleResult:
+    defaultPage = int(page)
     try:
         request_data = jwt.decode(search_token, verify=False)
     except jwt.DecodeError:
@@ -47,5 +48,6 @@ async def tutor_search(search_token) -> types.SampleResult:
         async with aiofiles.open(JSON_PATH) as f:
             content = await f.read()
             data = json.loads(content)
-        return types.SampleResult(**data)
+            result = data["data"][defaultPage - 1]
+        return types.SampleResult(data=result)
 

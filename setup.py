@@ -44,7 +44,7 @@ setup(
     # package_data={"databases": ["py.typed"]},
     # data_files=[("", ["LICENSE.md"])],
     install_requires=[
-        "starlette==0.12.4",
+        "starlette==0.25.0",
         "websockets==8.0.1",
         'dalchemy @ git+https://github.com/Tuteria/shared_lib.git@master',
     ],
